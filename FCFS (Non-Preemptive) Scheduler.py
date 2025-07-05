@@ -14,3 +14,9 @@ class Process:
         
     def is_completed(self):
         return self.current_burst >= len(self.burst_times)
+
+# Display simulation status
+def display_status(current_time, running_process, ready_queue, io_list):
+    print(f"\nCurrent Execution Time: {current_time}")
+    if running_process:
+        print(f"Running Process: P{running_process.pid}")
