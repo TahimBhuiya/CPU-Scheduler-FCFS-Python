@@ -32,4 +32,12 @@ def fcfs_scheduling(processes):
     ready_queue = deque(processes)  
     io_list = []                   
     completed_processes = []
-    cpu_busy_time = 0               
+    cpu_busy_time = 0   
+    
+    while ready_queue or io_list:
+        # Check for I/O completions
+        io_completed = [ (p, t) for (p, t) in io_list if t <= current_time ]
+        for p, t in io_completed:
+            ready_queue.append(p)
+            io_list.remove((p, t))
+            p.last_end_time = t  # Update last end time to I/O completion time
