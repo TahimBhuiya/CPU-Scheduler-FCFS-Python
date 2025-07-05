@@ -24,3 +24,12 @@ def display_status(current_time, running_process, ready_queue, io_list):
         print("Running Process: None")
     print("Ready Queue:", [(p.pid, p.burst_times[p.current_burst]) for p in ready_queue])
     print("Processes in I/O:", [(p.pid, t - current_time) for p, t in io_list])
+
+
+# Simulate FCFS (First-Come, First-Served) Scheduling
+def fcfs_scheduling(processes):
+    current_time = 0
+    ready_queue = deque(processes)  
+    io_list = []                   
+    completed_processes = []
+    cpu_busy_time = 0               
