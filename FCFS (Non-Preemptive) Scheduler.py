@@ -20,3 +20,7 @@ def display_status(current_time, running_process, ready_queue, io_list):
     print(f"\nCurrent Execution Time: {current_time}")
     if running_process:
         print(f"Running Process: P{running_process.pid}")
+    else:
+        print("Running Process: None")
+    print("Ready Queue:", [(p.pid, p.burst_times[p.current_burst]) for p in ready_queue])
+    print("Processes in I/O:", [(p.pid, t - current_time) for p, t in io_list])
