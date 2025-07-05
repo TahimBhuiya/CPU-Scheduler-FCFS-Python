@@ -11,3 +11,6 @@ class Process:
         self.turnaround_time = 0        
         self.response_time = -1         
         self.last_end_time = 0         
+        
+    def is_completed(self):
+        return self.current_burst >= len(self.burst_times)
