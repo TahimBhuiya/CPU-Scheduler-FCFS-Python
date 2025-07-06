@@ -67,6 +67,17 @@ def fcfs_scheduling(processes):
             # Move to next burst
             process.current_burst += 1
 
+            if process.current_burst < len(process.burst_times):
+                # Schedule I/O
+                io_time = process.io_times[process.current_burst - 1]
+                io_completion_time = current_time + io_time
+                io_list.append((process, io_completion_time))
+            else:
+                # Process is complete
+                process.turnaround_time = current_time  
+                completed_processes.append(process)
+                print(f"Process P{process.pid} has completed its total execution.")
+
 
 
 
