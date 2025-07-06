@@ -46,6 +46,21 @@ def fcfs_scheduling(processes):
         running_process = ready_queue[0] if ready_queue else None
         display_status(current_time, running_process, ready_queue, io_list)
 
+        if ready_queue:
+            # Dequeue the first process from the ready queue
+            process = ready_queue.popleft()
+
+            # If it's the first time the process is getting the CPU
+            if process.response_time == -1:
+                process.response_time = current_time
+
+            # Calculate waiting time since last end time
+            waiting_since_last = current_time - process.last_end_time
+            if waiting_since_last > 0:
+                process.waiting_time += waiting_since_last
+
+
+
 
 
 
