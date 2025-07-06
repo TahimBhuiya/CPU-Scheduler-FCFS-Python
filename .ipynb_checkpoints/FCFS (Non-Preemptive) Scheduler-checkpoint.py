@@ -78,6 +78,16 @@ def fcfs_scheduling(processes):
                 completed_processes.append(process)
                 print(f"Process P{process.pid} has completed its total execution.")
 
+        else:
+            # If no process is ready, advance time to the next I/O completion
+            if io_list:
+                next_io_completion = min(io_list, key=lambda x: x[1])[1]
+                # Idle time is the gap between current_time and next_io_completion
+                idle_time = next_io_completion - current_time
+                current_time = next_io_completion
+            else:
+                break  # No processes left
+
 
 
 
