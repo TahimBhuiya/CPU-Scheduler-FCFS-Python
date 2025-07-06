@@ -59,7 +59,13 @@ def fcfs_scheduling(processes):
             if waiting_since_last > 0:
                 process.waiting_time += waiting_since_last
 
+            # Execute the current CPU burst
+            burst_time = process.burst_times[process.current_burst]
+            current_time += burst_time
+            cpu_busy_time += burst_time  # CPU is busy during this time
 
+            # Move to next burst
+            process.current_burst += 1
 
 
 
