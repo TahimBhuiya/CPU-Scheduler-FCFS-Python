@@ -88,6 +88,12 @@ def fcfs_scheduling(processes):
             else:
                 break  # No processes left
 
+    # Calculate CPU Utilization
+    total_time = current_time
+    cpu_utilization = (cpu_busy_time / total_time) * 100 if total_time > 0 else 0
+
+    return completed_processes, cpu_utilization, total_time
+
 
 
 
