@@ -41,3 +41,11 @@ def fcfs_scheduling(processes):
             ready_queue.append(p)
             io_list.remove((p, t))
             p.last_end_time = t  # Update last end time to I/O completion time
+
+        # Display the current status
+        running_process = ready_queue[0] if ready_queue else None
+        display_status(current_time, running_process, ready_queue, io_list)
+
+
+
+
