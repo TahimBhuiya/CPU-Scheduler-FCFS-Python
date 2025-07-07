@@ -109,6 +109,12 @@ processes = [p1, p2, p3, p4, p5, p6, p7, p8]
 
 completed_processes, cpu_utilization, total_time = fcfs_scheduling(processes)
 
+# Calculate averages
+total_waiting_time = sum(p.waiting_time for p in completed_processes)
+total_turnaround_time = sum(p.turnaround_time for p in completed_processes)
+total_response_time = sum(p.response_time for p in completed_processes)
+num_processes = len(completed_processes)
+
 # Display final results
 print("\nResults at the end of the simulation:")
 print(f"Total time needed to complete all processes: {total_time}")
@@ -116,6 +122,11 @@ print(f"CPU Utilization: {cpu_utilization:.2f}%")
 print(f"\n{'Process':<12}{'Tw':<10}{'Ttr':<12}{'Tr':<10}")
 for process in completed_processes:
     print(f"P{process.pid:<10}{process.waiting_time:<10}{process.turnaround_time:<12}{process.response_time:<10}")
+
+
+
+
+
 
 
 
