@@ -109,6 +109,14 @@ processes = [p1, p2, p3, p4, p5, p6, p7, p8]
 
 completed_processes, cpu_utilization, total_time = fcfs_scheduling(processes)
 
+# Display final results
+print("\nResults at the end of the simulation:")
+print(f"Total time needed to complete all processes: {total_time}")
+print(f"CPU Utilization: {cpu_utilization:.2f}%")
+
+
+
+
 
 
 
