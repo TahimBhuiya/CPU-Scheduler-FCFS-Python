@@ -4,13 +4,13 @@ from collections import deque
 class Process:
     def __init__(self, pid, burst_times, io_times):
         self.pid = pid
-        self.burst_times = burst_times  
-        self.io_times = io_times       
-        self.current_burst = 0          
-        self.waiting_time = 0          
-        self.turnaround_time = 0        
-        self.response_time = -1         
-        self.last_end_time = 0         
+        self.burst_times = burst_times  # List of CPU bursts
+        self.io_times = io_times        # List of I/O times
+        self.current_burst = 0          # Track current CPU burst index
+        self.waiting_time = 0           # Total waiting time
+        self.turnaround_time = 0        # Total turnaround time
+        self.response_time = -1         # First response time
+        self.last_end_time = 0          # Last time the process was in CPU or I/O    
         
     def is_completed(self):
         return self.current_burst >= len(self.burst_times)
