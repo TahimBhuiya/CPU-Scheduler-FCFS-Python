@@ -107,3 +107,9 @@ p8 = Process(8, [4, 5, 6, 14, 16, 6], [14, 33, 51, 73, 87])
 processes = [p1, p2, p3, p4, p5, p6, p7, p8] 
 
 
+completed_processes, cpu_utilization, total_time = fcfs_scheduling(processes)
+
+
+
+
+
