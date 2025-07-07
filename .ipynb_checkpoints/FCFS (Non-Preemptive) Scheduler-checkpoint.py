@@ -13,6 +13,10 @@ class Process:
         self.last_end_time = 0          # Last time the process was in CPU or I/O    
         
     def is_completed(self):
+        """
+        Check if the process has completed all its CPU bursts.
+        Returns True if all CPU bursts have been executed, otherwise False.
+        """
         return self.current_burst >= len(self.burst_times)
 
 # Display simulation status
