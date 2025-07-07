@@ -129,6 +129,9 @@ for process in completed_processes:
 
 
 
+# Display averages
+print(f"\n{'Average':<12}{average_waiting_time:<10.2f}{average_turnaround_time:<12.2f}{average_response_time:<10.2f}")
+
 
 
 
