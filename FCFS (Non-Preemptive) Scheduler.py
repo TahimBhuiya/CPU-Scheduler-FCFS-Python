@@ -113,6 +113,9 @@ completed_processes, cpu_utilization, total_time = fcfs_scheduling(processes)
 print("\nResults at the end of the simulation:")
 print(f"Total time needed to complete all processes: {total_time}")
 print(f"CPU Utilization: {cpu_utilization:.2f}%")
+print(f"\n{'Process':<12}{'Tw':<10}{'Ttr':<12}{'Tr':<10}")
+for process in completed_processes:
+    print(f"P{process.pid:<10}{process.waiting_time:<10}{process.turnaround_time:<12}{process.response_time:<10}")
 
 
 
