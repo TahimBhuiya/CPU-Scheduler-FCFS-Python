@@ -83,30 +83,48 @@ def fcfs_scheduling(processes):
             # Add the burst time to total CPU busy time (used to calculate CPU utilization later)
             cpu_busy_time += burst_time
 
-
-            # Move to next burst
+            # Move to the next CPU burst (increment burst index)
             process.current_burst += 1
 
             if process.current_burst < len(process.burst_times):
-                # Schedule I/O
+                # If there are more CPU bursts left, schedule the next I/O operation
+
+                # Get the corresponding I/O time (index is current_burst - 1 because I/O follows a completed CPU burst)
                 io_time = process.io_times[process.current_burst - 1]
+
+                # Compute the time at which this I/O will complete
                 io_completion_time = current_time + io_time
+
+                # Add the process to the I/O list with its completion time
                 io_list.append((process, io_completion_time))
             else:
-                # Process is complete
-                process.turnaround_time = current_time  
+                # If all CPU bursts are completed, mark the process as finished
+
+                # Turnaround time is the total time taken from arrival (assumed 0) to completion
+                process.turnaround_time = current_time
+
+                # Add the process to the list of completed processes
                 completed_processes.append(process)
+
+                # Log completion
                 print(f"Process P{process.pid} has completed its total execution.")
 
         else:
-            # If no process is ready, advance time to the next I/O completion
+            # If no process is in the ready queue, advance time to the next I/O completion
+
             if io_list:
+                # Find the soonest I/O completion time among all processes in I/O
                 next_io_completion = min(io_list, key=lambda x: x[1])[1]
-                # Idle time is the gap between current_time and next_io_completion
+
+                # Calculate idle time (gap between now and the next I/O completion)
                 idle_time = next_io_completion - current_time
+
+                # Move the simulation clock forward to that time
                 current_time = next_io_completion
             else:
-                break  # No processes left
+                # No processes left in the system (both ready queue and I/O list are empty)
+                break
+
 
     # Calculate CPU Utilization
     total_time = current_time
