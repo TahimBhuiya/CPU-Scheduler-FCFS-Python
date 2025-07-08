@@ -136,7 +136,13 @@ def fcfs_scheduling(processes):
 
     # Return the list of completed processes and final performance metrics
     return completed_processes, cpu_utilization, total_time
+    
 
+# Define 8 processes with varying CPU and I/O burst patterns
+# Each process is initialized with:
+# - A unique process ID (pid)
+# - A list of CPU bursts (in order)
+# - A list of I/O times (one less than the number of CPU bursts)
 
 p1 = Process(1, [5, 3, 5, 4, 6, 4, 3, 4], [27, 31, 43, 18, 22, 26, 24])
 p2 = Process(2, [4, 5, 7, 12, 9, 4, 9, 7, 8], [48, 44, 42, 37, 76, 41, 31, 43])
@@ -147,10 +153,16 @@ p6 = Process(6, [11, 4, 5, 6, 7, 9, 12, 15, 8], [22, 8, 10, 12, 14, 18, 24, 30])
 p7 = Process(7, [14, 17, 11, 15, 4, 7, 16, 10], [46, 41, 42, 21, 32, 19, 33])
 p8 = Process(8, [4, 5, 6, 14, 16, 6], [14, 33, 51, 73, 87])
 
-processes = [p1, p2, p3, p4, p5, p6, p7, p8] 
+# Add all processes to a list for scheduling
+processes = [p1, p2, p3, p4, p5, p6, p7, p8]
 
-
+# Run the FCFS scheduling simulation with the provided process list
+# This function returns:
+# - A list of completed processes (with updated timing info)
+# - CPU utilization percentage
+# - Total time the simulation took to complete
 completed_processes, cpu_utilization, total_time = fcfs_scheduling(processes)
+
 
 # Calculate averages
 total_waiting_time = sum(p.waiting_time for p in completed_processes)
