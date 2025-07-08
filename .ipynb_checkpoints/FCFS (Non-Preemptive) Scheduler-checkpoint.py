@@ -57,27 +57,32 @@ def fcfs_scheduling(processes):
             p.last_end_time = t             # Update process's last end time to I/O completion time
 
        
-        # Display the current status
+        # Display the current simulation status (time, running process, queues)
         running_process = ready_queue[0] if ready_queue else None
         display_status(current_time, running_process, ready_queue, io_list)
 
         if ready_queue:
-            # Dequeue the first process from the ready queue
+            # Fetch the next process to run from the front of the ready queue (FCFS)
             process = ready_queue.popleft()
 
-            # If it's the first time the process is getting the CPU
+            # If the process is getting the CPU for the first time, record its response time
             if process.response_time == -1:
                 process.response_time = current_time
 
-            # Calculate waiting time since last end time
+            # Calculate how long the process has waited since it last finished CPU or I/O
             waiting_since_last = current_time - process.last_end_time
             if waiting_since_last > 0:
-                process.waiting_time += waiting_since_last
+                process.waiting_time += waiting_since_last  # Add to total waiting time
 
-            # Execute the current CPU burst
+            # Get the duration of the current CPU burst
             burst_time = process.burst_times[process.current_burst]
+
+            # Simulate execution: advance the current time by the burst duration
             current_time += burst_time
-            cpu_busy_time += burst_time  # CPU is busy during this time
+
+            # Add the burst time to total CPU busy time (used to calculate CPU utilization later)
+            cpu_busy_time += burst_time
+
 
             # Move to next burst
             process.current_burst += 1
