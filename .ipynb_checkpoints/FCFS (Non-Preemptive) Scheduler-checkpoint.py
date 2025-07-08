@@ -37,22 +37,26 @@ def display_status(current_time, running_process, ready_queue, io_list):
 
 
 
-# Simulate FCFS (First-Come, First-Served) Scheduling
+# Simulate FCFS (First-Come, First-Served) CPU Scheduling with I/O handling
 def fcfs_scheduling(processes):
-    current_time = 0
-    ready_queue = deque(processes)  
-    io_list = []                   
-    completed_processes = []
-    cpu_busy_time = 0   
-    
-    while ready_queue or io_list:
-        # Check for I/O completions
-        io_completed = [ (p, t) for (p, t) in io_list if t <= current_time ]
-        for p, t in io_completed:
-            ready_queue.append(p)
-            io_list.remove((p, t))
-            p.last_end_time = t  # Update last end time to I/O completion time
+    current_time = 0                      # Simulation clock
+    ready_queue = deque(processes)       # Queue of processes ready to execute (in order of arrival)
+    io_list = []                         # List of processes currently performing I/O: (process, io_completion_time)
+    completed_processes = []            # List to store completed processes
+    cpu_busy_time = 0                    # Total time the CPU was actively executing a process
 
+    # Continue simulation as long as there are processes in the ready queue or in I/O
+    while ready_queue or io_list:
+
+        # Check for I/O completions at the current time
+        # Move completed I/O processes back to the ready queue
+        io_completed = [(p, t) for (p, t) in io_list if t <= current_time]
+        for p, t in io_completed:
+            ready_queue.append(p)           # Process is now ready for its next CPU burst
+            io_list.remove((p, t))          # Remove from I/O list
+            p.last_end_time = t             # Update process's last end time to I/O completion time
+
+       
         # Display the current status
         running_process = ready_queue[0] if ready_queue else None
         display_status(current_time, running_process, ready_queue, io_list)
