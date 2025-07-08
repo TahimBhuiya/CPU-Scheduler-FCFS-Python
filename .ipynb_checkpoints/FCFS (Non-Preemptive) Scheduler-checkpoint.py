@@ -164,11 +164,20 @@ processes = [p1, p2, p3, p4, p5, p6, p7, p8]
 completed_processes, cpu_utilization, total_time = fcfs_scheduling(processes)
 
 
-# Calculate averages
+# 📊 Calculate total and average performance metrics across all completed processes
+
+# Sum of waiting times for all processes
 total_waiting_time = sum(p.waiting_time for p in completed_processes)
+
+# Sum of turnaround times for all processes
 total_turnaround_time = sum(p.turnaround_time for p in completed_processes)
+
+# Sum of response times for all processes
 total_response_time = sum(p.response_time for p in completed_processes)
+
+# Total number of completed processes (used to calculate averages)
 num_processes = len(completed_processes)
+
 
 average_waiting_time = total_waiting_time / num_processes
 average_turnaround_time = total_turnaround_time / num_processes
