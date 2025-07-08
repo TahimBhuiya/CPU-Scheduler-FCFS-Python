@@ -19,15 +19,22 @@ class Process:
         """
         return self.current_burst >= len(self.burst_times)
 
-# Display simulation status
+# Display the current simulation status, including running process, ready queue, and I/O list
 def display_status(current_time, running_process, ready_queue, io_list):
-    print(f"\nCurrent Execution Time: {current_time}")
+    print(f"\nCurrent Execution Time: {current_time}")  # Show current time in the simulation
+
+    # Display the currently running process, if any
     if running_process:
         print(f"Running Process: P{running_process.pid}")
     else:
         print("Running Process: None")
+
+    # Show the contents of the ready queue: process ID and its current CPU burst time
     print("Ready Queue:", [(p.pid, p.burst_times[p.current_burst]) for p in ready_queue])
+
+    # Show the processes in I/O: process ID and remaining I/O time (completion time - current time)
     print("Processes in I/O:", [(p.pid, t - current_time) for p, t in io_list])
+
 
 
 # Simulate FCFS (First-Come, First-Served) Scheduling
