@@ -179,9 +179,17 @@ total_response_time = sum(p.response_time for p in completed_processes)
 num_processes = len(completed_processes)
 
 
+# Calculate average performance metrics
+
+# Average Waiting Time: total waiting time divided by number of processes
 average_waiting_time = total_waiting_time / num_processes
+
+# Average Turnaround Time: total turnaround time divided by number of processes
 average_turnaround_time = total_turnaround_time / num_processes
+
+# Average Response Time: total response time divided by number of processes
 average_response_time = total_response_time / num_processes
+
 
 # Display final results
 print("\nResults at the end of the simulation:")
