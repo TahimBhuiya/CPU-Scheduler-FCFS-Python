@@ -126,10 +126,15 @@ def fcfs_scheduling(processes):
                 break
 
 
-    # Calculate CPU Utilization
+    # Calculate total time taken for the simulation (from start to when all processes are completed)
     total_time = current_time
+
+    # Calculate CPU Utilization:
+    # It's the percentage of time the CPU was actively executing processes (not idle)
+    # Formula: (CPU Busy Time / Total Simulation Time) * 100
     cpu_utilization = (cpu_busy_time / total_time) * 100 if total_time > 0 else 0
 
+    # Return the list of completed processes and final performance metrics
     return completed_processes, cpu_utilization, total_time
 
 
