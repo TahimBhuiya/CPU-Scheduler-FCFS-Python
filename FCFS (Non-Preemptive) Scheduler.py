@@ -35,8 +35,6 @@ def display_status(current_time, running_process, ready_queue, io_list):
     # Show the processes in I/O: process ID and remaining I/O time (completion time - current time)
     print("Processes in I/O:", [(p.pid, t - current_time) for p, t in io_list])
 
-
-
 # Simulate FCFS (First-Come, First-Served) CPU Scheduling with I/O handling
 def fcfs_scheduling(processes):
     current_time = 0                      # Simulation clock
@@ -55,8 +53,7 @@ def fcfs_scheduling(processes):
             ready_queue.append(p)           # Process is now ready for its next CPU burst
             io_list.remove((p, t))          # Remove from I/O list
             p.last_end_time = t             # Update process's last end time to I/O completion time
-
-       
+    
         # Display the current simulation status (time, running process, queues)
         running_process = ready_queue[0] if ready_queue else None
         display_status(current_time, running_process, ready_queue, io_list)
@@ -125,7 +122,6 @@ def fcfs_scheduling(processes):
                 # No processes left in the system (both ready queue and I/O list are empty)
                 break
 
-
     # Calculate total time taken for the simulation (from start to when all processes are completed)
     total_time = current_time
 
@@ -137,7 +133,6 @@ def fcfs_scheduling(processes):
     # Return the list of completed processes and final performance metrics
     return completed_processes, cpu_utilization, total_time
     
-
 # Define 8 processes with varying CPU and I/O burst patterns
 # Each process is initialized with:
 # - A unique process ID (pid)
@@ -163,8 +158,7 @@ processes = [p1, p2, p3, p4, p5, p6, p7, p8]
 # - Total time the simulation took to complete
 completed_processes, cpu_utilization, total_time = fcfs_scheduling(processes)
 
-
-# 📊 Calculate total and average performance metrics across all completed processes
+# Calculate total and average performance metrics across all completed processes
 
 # Sum of waiting times for all processes
 total_waiting_time = sum(p.waiting_time for p in completed_processes)
@@ -178,7 +172,6 @@ total_response_time = sum(p.response_time for p in completed_processes)
 # Total number of completed processes (used to calculate averages)
 num_processes = len(completed_processes)
 
-
 # Calculate average performance metrics
 
 # Average Waiting Time: total waiting time divided by number of processes
@@ -189,7 +182,6 @@ average_turnaround_time = total_turnaround_time / num_processes
 
 # Average Response Time: total response time divided by number of processes
 average_response_time = total_response_time / num_processes
-
 
 # Display the final simulation summary
 print("\nResults at the end of the simulation:")
@@ -214,9 +206,6 @@ print(f"\n{'Process':<12}{'Tw':<10}{'Ttr':<12}{'Tr':<10}")
 # - Tr: Response Time (first time the process got the CPU)
 for process in completed_processes:
     print(f"P{process.pid:<10}{process.waiting_time:<10}{process.turnaround_time:<12}{process.response_time:<10}")
-
-
-
 
 # Display average metrics across all processes
 # Shows:
