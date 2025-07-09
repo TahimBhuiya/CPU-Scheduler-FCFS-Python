@@ -206,8 +206,15 @@ print(f"CPU Utilization: {cpu_utilization:.2f}%")
 # Tr  = Response Time
 print(f"\n{'Process':<12}{'Tw':<10}{'Ttr':<12}{'Tr':<10}")
 
+# Print performance metrics for each completed process
+# Each row shows:
+# - Process ID (pid)
+# - Tw: Total Waiting Time
+# - Ttr: Total Turnaround Time
+# - Tr: Response Time (first time the process got the CPU)
 for process in completed_processes:
     print(f"P{process.pid:<10}{process.waiting_time:<10}{process.turnaround_time:<12}{process.response_time:<10}")
+
 
 
 
