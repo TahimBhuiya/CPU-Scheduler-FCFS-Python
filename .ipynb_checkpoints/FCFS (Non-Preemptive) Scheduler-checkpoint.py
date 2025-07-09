@@ -191,11 +191,21 @@ average_turnaround_time = total_turnaround_time / num_processes
 average_response_time = total_response_time / num_processes
 
 
-# Display final results
+# Display the final simulation summary
 print("\nResults at the end of the simulation:")
+
+# Print the total time taken to complete all processes
 print(f"Total time needed to complete all processes: {total_time}")
+
+# Print how much of that time the CPU was actively working
 print(f"CPU Utilization: {cpu_utilization:.2f}%")
+
+# Print the table header with aligned columns:
+# Tw  = Waiting Time
+# Ttr = Turnaround Time
+# Tr  = Response Time
 print(f"\n{'Process':<12}{'Tw':<10}{'Ttr':<12}{'Tr':<10}")
+
 for process in completed_processes:
     print(f"P{process.pid:<10}{process.waiting_time:<10}{process.turnaround_time:<12}{process.response_time:<10}")
 
