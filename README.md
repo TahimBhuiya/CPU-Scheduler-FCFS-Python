@@ -16,3 +16,11 @@ This simulation models how an operating system schedules processes using the **F
 - Metrics are tracked for all processes
 
 ---
+
+## ▶️ Usage
+
+Run the Python file directly:
+
+```bash
+python FCFS (Non-Preemptive) Scheduler.py
+```
