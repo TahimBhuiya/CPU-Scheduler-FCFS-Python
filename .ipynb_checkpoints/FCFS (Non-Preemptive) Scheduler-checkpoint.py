@@ -218,8 +218,13 @@ for process in completed_processes:
 
 
 
-# Display averages
+# Display average metrics across all processes
+# Shows:
+# - Average Waiting Time (Tw)
+# - Average Turnaround Time (Ttr)
+# - Average Response Time (Tr)
 print(f"\n{'Average':<12}{average_waiting_time:<10.2f}{average_turnaround_time:<12.2f}{average_response_time:<10.2f}")
+
 
 
 
