@@ -60,3 +60,28 @@ Then observe the simulation output in the terminal, including:
 | CPU Utilization   | % of time the CPU was actively processing (not idle)                        |
 
 ---
+
+
+## 📈 Example Output
+
+```
+Current Execution Time: 93
+Running Process: P1
+Ready Queue: [(3, 8), (4, 3), (6, 11), (5, 16), (7, 14), (8, 4)]
+Processes in I/O: [(2, 24)]
+
+Process P1 has completed its total execution.
+
+Results at the end of the simulation:
+Total time needed to complete all processes: 980
+CPU Utilization: 81.24%
+
+Process     Tw        Ttr         Tr        
+P1          63        198         0         
+P2          112       312         12        
+...
+
+Average     84.75     256.50      15.38
+```
+
+---
