@@ -45,3 +45,18 @@ Then observe the simulation output in the terminal, including:
 | Metrics Calculation       | Computes average waiting, turnaround, and response time + CPU utilization|
 
 ---
+
+## 🔧 Key Concepts
+
+| Concept           | Description                                                                 |
+|-------------------|-----------------------------------------------------------------------------|
+| CPU Burst         | Duration for which a process needs the CPU                                  |
+| I/O Time          | Time for which a process performs I/O between CPU bursts                    |
+| Ready Queue       | Queue of processes waiting for the CPU (FCFS order)                         |
+| I/O List          | List of processes currently doing I/O and their completion times            |
+| Response Time     | Time from arrival to first CPU allocation                                   |
+| Waiting Time      | Time spent waiting in the ready queue                                       |
+| Turnaround Time   | Total time from arrival to process completion                               |
+| CPU Utilization   | % of time the CPU was actively processing (not idle)                        |
+
+---
