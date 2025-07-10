@@ -92,3 +92,12 @@ Average     84.75     256.50      15.38
 - No external libraries (only built-in `collections.deque` is used)
 
 ---
+
+## ✅ Notes
+
+- This simulation assumes all processes **arrive at time 0**.  
+- I/O operations are **blocking**, meaning the process leaves the CPU and re-enters only after I/O finishes.  
+- Ready queue follows **strict FCFS** — no priority or preemption.  
+- You can customize processes by modifying the `burst_times` and `io_times` lists.
+
+---
