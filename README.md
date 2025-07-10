@@ -85,3 +85,10 @@ Average     84.75     256.50      15.38
 ```
 
 ---
+
+## 📦 Requirements
+
+- Python 3.x  
+- No external libraries (only built-in `collections.deque` is used)
+
+---
