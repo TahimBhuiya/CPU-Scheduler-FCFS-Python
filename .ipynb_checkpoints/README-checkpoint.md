@@ -101,3 +101,15 @@ Average     84.75     256.50      15.38
 - You can customize processes by modifying the `burst_times` and `io_times` lists.
 
 ---
+
+## 🛠️ How to Customize
+
+To simulate different workloads, change or add `Process` objects in the code:
+
+```python
+# Example:
+p9 = Process(9, [5, 10, 6], [12, 15])
+processes.append(p9)
+```
+
+---
