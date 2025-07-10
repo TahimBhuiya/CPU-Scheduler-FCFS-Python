@@ -24,3 +24,12 @@ Run the Python file directly:
 ```bash
 python FCFS (Non-Preemptive) Scheduler.py
 ```
+
+Then observe the simulation output in the terminal, including:
+
+- Real-time status updates (e.g. which process is running or in I/O)  
+- Completion logs for each process  
+- A table with waiting, turnaround, and response times  
+- CPU utilization and average performance metrics
+
+---
