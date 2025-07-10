@@ -113,3 +113,10 @@ processes.append(p9)
 ```
 
 ---
+
+## 📣 Credits
+
+Developed by **Tahim Bhuiya**  
+Assignment – CPU Scheduling Simulation in Python
+
+🖥️ Happy Scheduling!
