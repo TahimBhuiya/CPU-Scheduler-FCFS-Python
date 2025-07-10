@@ -33,3 +33,15 @@ Then observe the simulation output in the terminal, including:
 - CPU utilization and average performance metrics
 
 ---
+
+## 🧠 Code Description
+
+| Component                  | Purpose                                                                 |
+|---------------------------|-------------------------------------------------------------------------|
+| `Process` class           | Stores burst times, I/O times, and performance metrics per process       |
+| `fcfs_scheduling()`       | Core simulation function for FCFS with I/O handling                      |
+| `display_status()`        | Prints real-time status of CPU, ready queue, and I/O queue               |
+| `is_completed()`          | Checks if a process has finished all its CPU bursts                      |
+| Metrics Calculation       | Computes average waiting, turnaround, and response time + CPU utilization|
+
+---
